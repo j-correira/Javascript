@@ -1,0 +1,118 @@
+
+<html>
+<title>Game Reviews</title>
+<head>
+				<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<style type='text/css'>
+			.imgframe   { background:black; padding:12px; border:1px solid #999; }
+		</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class='col-md-8'>
+			<h1>Game Reviews</h1>
+
+			<table class="table table-striped">
+			<thead>
+			  <tr>
+					<th>Game Title</th>
+					<th>Console</th>
+					<th>Rating</th>
+					<th>Score</th>
+			  </tr>
+			</thead>
+			<tbody id="reviewsBody">		
+			</tbody>
+		  </table>
+	  </div>
+	 
+	  <div class='col-md-4' style='margin-top:200px;'>
+		<h2 id="gameTitle"></h2>
+			<img id='gameImage'  src=''>
+	  </div>
+	</div>
+</div>
+ 
+</body>
+</html>
+
+ <script>
+	
+	jsonInfoReviews = '[{"gameId":9,"gameTitle":"Overwatch","consoles":"PS4, XboxOne, PC","rating":"T","score":5,"imageName":"Overwatch.jpg"},{"gameId":10,"gameTitle":"Civilization VI","consoles":"PC","rating":"E10+","score":5,"imageName":"civ6.jpg"},{"gameId":11,"gameTitle":"NBA 2K17","consoles":"PS4, XboxOne, PC","rating":"E","score":5,"imageName":"NBA2k17.jpg"},{"gameId":12,"gameTitle":"TitanFall 2","consoles":"PS4, XboxOne, PC","rating":"M","score":5,"imageName":"Titanfall2.jpg"},{"gameId":13,"gameTitle":"Uncharted 4: a thief\'s end","consoles":"PS4","rating":"T","score":5,"imageName":"Uncharted4.jpg"},{"gameId":14,"gameTitle":"XCom 2","consoles":"PS4, XboxOne, PC","rating":"T","score":5,"imageName":"Xcom2.jpg"},{"gameId":15,"gameTitle":"Battlefield 1","consoles":"PS4, XboxOne, PC","rating":"M","score":5,"imageName":"Battlefield1.jpg"},{"gameId":16,"gameTitle":"Dark Souls 3","consoles":"PS4, XboxOne, PC","rating":"M","score":5,"imageName":"DarkSouls3.jpg"},{"gameId":17,"gameTitle":"Dishonored 2","consoles":"PS4, XboxOne, PC","rating":"M","score":5,"imageName":"DisHonored2.jpg"},{"gameId":18,"gameTitle":"Fire Emblem Fates: Conquest","consoles":"3DS","rating":"T","score":4,"imageName":"FireEmblemFates.jpg"},{"gameId":19,"gameTitle":"Forza Horizon 3","consoles":"XboxOne, PC","rating":"E","score":5,"imageName":"ForzaHorizon3.jpg"},{"gameId":20,"gameTitle":"Gears of War 4","consoles":"XboxOne, PC","rating":"M","score":5,"imageName":"GearsofWar4.jpg"},{"gameId":21,"gameTitle":"Call of Duty: Infinite Warfare","consoles":"XboxOne, PC","rating":"M","score":5,"imageName":"CoDIW.jpg"},{"gameId":22,"gameTitle":"Dead Rising 4","consoles":"XboxOne","rating":"M","score":5,"imageName":"DeadRising4.jpg"},{"gameId":23,"gameTitle":"Doom","consoles":"XboxOne, PC","rating":"T","score":5,"imageName":"Doom.jpg"},{"gameId":24,"gameTitle":"Fifa 17","consoles":"XboxOne, PC","rating":"E","score":5,"imageName":"FIFA17.jpg"},{"gameId":25,"gameTitle":"Madden NFL 17","consoles":"PS4, XboxOne, PC","rating":"E","score":4,"imageName":"Madden17.jpg"}]';
+	
+	reviews = JSON.parse(jsonInfoReviews);
+	
+/*
+__________ Checklist __________
+
+(X) Loop through the reviews array, and create a string that contains the tr and td tags for all of the games in the reviews array.
+
+(X) Create each of the links with a class named "review" and a property 
+[[[[[data-img and set this property to the correct image.
+
+(X) Set the innerHTML property of the "reviewsBody" to this string that you generated.
+
+(X) Get a reference to an array of all of the links using document.querySelectorAll(); Use the class to select them.
+
+(X) Loop through this links array, and add an event listener called "selectReview" for each of the links using addEventListener.
+
+--- Within the function "selectReview" do the following:
+(X) Set the src property of the image "gameImage" to "images/" + this.dataset.img;
+
+(X) Set the innerText property of the gameTitle to this.text
+
+*/
+
+var str = "";
+var i = 0;
+
+for (i = 0; i < reviews.length; i++)
+{
+		str += "<tr>";
+				str += "<td>";
+					str += "<a class='review' href='#' data-img=" + reviews[i].imageName + ">";
+						str += reviews[i].gameTitle;
+					str += "</a>";
+				str += "</td>";
+
+				str += "<td>";
+	  				str += reviews[i].consoles;
+				str += "</td>";
+
+				str += "<td>";
+	  				str += reviews[i].rating;
+				str += "</td>";
+
+				str += "<td>";
+	  				str += reviews[i].score;
+				str += "</td>";
+		str += "</tr>"; 
+}
+
+document.getElementById("reviewsBody").innerHTML = str;
+//document.getElementById('gameImage').src = "images/" + reviews[5].imageName;
+var links = document.querySelectorAll('a.review');
+
+for(var i=0; i < links.length; i++)
+{
+	links[i].addEventListener("click", function selectReview(e)
+	{
+				e.preventDefault();
+				//alert("check");
+
+				document.getElementById("gameImage").src = "images/" + this.dataset.img;
+				gameTitle.innerHTML = this.text;
+
+    });
+}
+
+/*
+console.log(links[0]);
+console.log(links[1]);
+console.log(links[2]);
+*/
+
+</script>
