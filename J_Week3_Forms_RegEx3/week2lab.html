@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>J | Week 3 - RegEx</title>
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="week2.js"></script>
+</head>
+
+<body>
+
+<div id="form">
+	
+<form name="info">
+    <div id="firstname">
+        <p>      
+            <label>First Name</label>
+            <br/>
+            <input type="text" placeholder="ex: James" id="first-name"/> <span id="fn-error"> </span>
+        </p>
+    </div>
+
+    <div id="lastname">    
+        <p>
+            <label>Last Name</label>
+            <br/>
+            <input type="text" placeholder="ex: Bond" id="last-name"/> <span id="ln-error"> </span>
+        </p>
+    </div>
+    
+    <div id="email">
+        <p>
+            <label>Email</label> 
+            <br/>
+            <input type="text" placeholder="ex: 007@gmail.com" id="emailInput"/> <span id="email-error"> </span>
+
+        </p>
+    </div>
+
+    <div id="confirmEmail">
+        <p>
+            <label>Confim Email</label>
+            <br/>
+            <input type="text" placeholder="ex: 007@gmail.com" id="confirmEmailInput"/> <span id="confirmEmail-error"> </span>
+        </p>
+    </div>
+
+    <div id="phoneNum">
+        <p>
+            <label>Phone Number</label>
+            <br/>
+            <input type="text" placeholder="ex: 1231231234" id="phone"/> <span id="phone-error"> </span>
+        </p>
+    </div>
+
+    <input type="button" value="submit" onclick="submitData()"/>
+    </form>
+</div>
+
+<div id="confirmation">
+	<h1>Confirmation</h1>
+    <p id="info">
+    </p>
+</div>
+
+</body>
+</html>
