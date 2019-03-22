@@ -1,0 +1,503 @@
+<!--
+-- where2eat --
+
+input resturants/select from dropdown menu
+    -save favorites, email about specials/deals
+
+randomly choose a resturant
+display website/insta/uber/grubhub
+
+
+Need to add: enter your own restaurant
+             logos
+             social media links
+             more restaurants
+             location/description
+             google maps
+
+-->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+    
+<!-- |||||||||||||||||||||||||||||||||||| -->
+<!-- |||||| CSS ||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||| -->
+       
+<style>
+    body {
+        background-color: blue;
+        font-family: sans-serif;
+    }
+    
+    p {
+        font-size:14px;
+    }
+    
+    header {
+        height: 60px;
+        border-bottom: 1px solid black;
+        padding-bottom: 3px;
+    }
+    
+    h1 {
+        font-size: 35px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    
+    h2 {
+        font-size: 21px;
+    }
+    
+    h3 {
+        font-size: 16px;
+        margin-top: 0px;
+    }
+    
+    h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    main {
+        background-color: #B29772;
+        border-radius: 10px;
+        width: 430px;
+        height: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px;
+    } 
+    
+    #logo {
+        background-color: coral;
+        height:50px;
+        width:50px;
+        margin-top:15px;
+        margin-left: auto;
+        margin-right: auto;       
+    }
+    
+    .addButton {
+        background-color: red;
+        border-radius: 0px 0px 10px 10px;
+        border: none;
+        width: 190px;
+        height:50px;
+        text-align: center;
+        text-decoration: none;
+        cursor:pointer;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+    }
+
+    .addButton2
+    {
+        background-color: red;
+        border-radius: 0px 10px 10px 0px;
+        border: none;
+        width: 140px;
+        height:50px;
+        text-align: center;
+        text-decoration: none;
+        cursor:pointer;
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+
+        margin-left: -5px;
+
+    }
+    
+    .addButton:focus {
+        background-color: forestgreen;
+        outline:0;
+    }
+    
+    #buttonContainer {
+        margin-left:-25px;
+        margin-top:-3px;
+    }
+
+    #userInput
+    {
+        margin-top:25px;
+        width: 460px;
+        padding-bottom: 15px;
+    }
+
+    #userInputTextBox
+    {
+        width:283px;
+        height:44px;
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    #userInputTextBox,
+    #userInputTextBox::-webkit-input-placeholder
+    {
+        font-size: 20px;
+        line-height: 3;
+    }
+    
+    #fords {
+        float: left;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+
+        width:140px;
+        height: 100px;
+        padding:25px;
+    }
+    
+    #OysterClub {
+        float: right;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+        width:140px;
+        height: 100px;
+        padding:25px;
+        margin-top: 0px;
+    }
+    
+    #mcDs {
+        float: left;
+        margin-top:85px;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+        width:140px;
+        height: 100px;
+        padding:25px;
+    }
+
+    #TacoBell {
+        float: left;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+        width:140px;
+        height: 100px;
+        padding: 25px;
+        margin-top: 85px;
+        margin-left: 50px;
+    }
+
+    #Wendys {
+        float: left;
+        margin-top:85px;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+        width:140px;
+        height: 100px;
+        padding:25px;
+    }
+
+    #BurgerKing {
+        float: left;
+        background-color: white;
+        border-radius: 8px 8px 0px 0px;
+        width:140px;
+        height: 100px;
+        padding: 25px;
+        margin-top: 85px;
+        margin-left: 50px;
+    }
+    
+    #outputs {
+        margin-top:75px;
+        float: left;
+    }
+     
+</style>    
+</head>
+
+<!-- |||||||||||||||||||||||||||||||||||| -->
+<!-- |||||| HTML |||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||| -->
+    
+<title>where2eat</title>
+    
+<body>
+<main>
+    
+    <header>
+        <h1>where2eat</h1>
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RNG for your food</h3>
+        <br>
+        
+    </header>
+   
+<!-- user input -->
+<div id="userInput">
+    <input type="text" name="input" id="userInputTextBox" placeholder=" Enter a Restaurant">
+    <button id="userAddButton" button class="addButton2" onclick="addUserInput();">Add </button>
+
+</div>
+
+
+
+    <br>
+<!-- fords -->
+    <div id="fords">
+        <h4>Ford's Lobster</h4>
+        <div id="logo"></div>
+        <p>Located in Noank, CT</p>
+            <div id="buttonContainer">
+                <button id="addFordsButton" button class="addButton" onclick="addFords(); this.onclick=null;">Add Ford's</button>
+            </div>
+    </div>    
+    
+<!-- oyster club -->
+    <div id="OysterClub">
+        <h4>Oyster Club</h4>
+        <div id="logo"></div>
+        <p>Located in Mystic, CT</p>
+            <div id="buttonContainer">
+                <button id="addOysterClubButton" button class="addButton" onclick="addOysterClub(); this.onclick=null;">Add Oyster Club</button>
+            </div>
+    </div>
+
+
+
+
+<!-- mcdonalds -->
+    <div id="mcDs">
+        <h4>McDonald's</h4>
+        <div id="logo"></div>
+        <p>Located in Mystic</p>
+            <div id="buttonContainer">
+                <button id="addFordsButton" button class="addButton" onclick="addMcDonalds(); this.onclick=null;">Add McDonald's</button>
+            </div>
+    </div>    
+    
+<!-- tacobell -->
+    <div id="TacoBell">
+        <h4>Taco Bell</h4>
+        <div id="logo"></div>
+        <p>Located in Groton</p>
+            <div id="buttonContainer">
+                <button id="addTacoBellButton" button class="addButton" onclick="addTacoBell(); this.onclick=null;">Add Taco Bell</button>
+            </div>
+    </div>
+
+<!-- wendys -->
+    <div id="Wendys">
+        <h4>Wendy's</h4>
+        <div id="logo"></div>
+        <p>Located in Groton</p>
+            <div id="buttonContainer">
+                <button id="addWendysButton" button class="addButton" onclick="addWendys(); this.onclick=null;">Add Wendy's</button>
+            </div>
+    </div>    
+    
+<!-- burger king -->
+    <div id="BurgerKing">
+        <h4>Burger King</h4>
+        <div id="logo"></div>
+        <p>Located in Groton</p>
+            <div id="buttonContainer">
+                <button id="addBurgerKingButton" button class="addButton" onclick="addBurgerKing(); this.onclick=null;">Add Burger King</button>
+            </div>
+    </div>
+
+
+
+
+
+
+<!--
+    <div id="McDonalds">
+        <h4>McDonalds</h4>
+        <div id="logo"></div>
+        <p>Located in shit</p>
+            <div id="buttonContainer">       
+                <button id="addMcDonaldsButton" button class="addButton" onclick="addMcDonalds(); this.onclick=null;">Add McDonalds</button>
+            </div>
+
+
+
+            <div id="TacoBell">
+                <h4>Taco Bell</h4>
+                <div id="logo"></div>
+                <p>Located in Groton</p>
+                    <div id="buttonContainer">       
+                        <button id="addTacoBell" button class="addButton" onclick="addTacoBell(); this.onclick=null;">Add Taco Bell</button>
+                    </div>
+-->
+
+
+
+        <br>
+        <br>
+    </div>
+    <br><br>
+    
+    <div id="outputs">
+        <br>
+        <br>
+        <h2>RNG says you'll be eating at...</h2>
+        <button onclick="pickOutput()">Pick Restaurant</button>
+        <p id="pickOut"></p>
+        <br>
+        <br>        
+        <div id="possibles"></div>
+        <br>
+        <br>
+        <h2>Possible choices</h2>
+        <button onclick="restaurantsOutput()">Restaurants Output</button>
+        <br>
+        <p id="restaurantsString"></p>
+        <br><br>
+        <br>
+        <br>
+        <button onclick="reload()">Reload page</button>
+    </div>
+</main>
+  
+<!-- |||||||||||||||||||||||||||||||||||| -->
+<!-- |||||| JAVA |||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||| -->    
+    
+<script>
+ //-----------------variables
+    var loop, restaurants = [];
+    
+    
+ //innerHTML for divs: 'picked' & 'possibles'
+    //document.getElementById("picked").innerHTML = rando; 
+    document.getElementById("possibles").innerHTML = restaurants;
+    
+//onclick pick function
+    function pickOutput() {
+        var rando = restaurants[Math.floor(Math.random()*restaurants.length)];
+        rando.toString();
+        document.getElementById("pickOut").innerHTML = rando;
+    }
+    
+//page reload function
+    function reload()
+    {location.reload();}
+
+//add user input restaurant function
+function addUserInput() {
+        boxvalue = document.getElementById("userInputTextBox").value;
+        console.log(boxvalue);
+        restaurants.push(boxvalue);
+        
+/*
+        //swap button text, color & div border color
+        document.getElementById("addFordsButton").style.background='ForestGreen';
+
+        document.getElementById("fords").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+
+        
+        var swap = document.getElementById("addFordsButton");
+        
+        if (swap.innerHTML == "Add Ford's")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add Ford's"; }
+*/
+    }
+    
+//add fords function
+    function addFords() {
+        restaurants.push(" Ford's Lobster");
+        
+        //swap button text, color & div border color
+        document.getElementById("addFordsButton").style.background='ForestGreen';
+
+        document.getElementById("fords").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+
+        
+        var swap = document.getElementById("addFordsButton");
+        
+        if (swap.innerHTML == "Add Ford's")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add Ford's"; }
+    }
+    
+//add oyster club function
+    function addOysterClub() {
+        restaurants.push(" Oyster Club");
+        
+        //swap button text
+        document.getElementById("addOysterClubButton").style.background='ForestGreen';
+
+        document.getElementById("OysterClub").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+        
+        var swap = document.getElementById("addOysterClubButton");
+        
+        if (swap.innerHTML == "Add Oyster Club")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add Oyster Club"; }
+    }
+    
+//add mcdonalds function
+    function addMcDonalds() {
+        restaurants.push(" McDonalds");
+        
+        //swap button text & color
+        document.getElementById("addMcDonaldsButton").style.background='ForestGreen';
+
+        document.getElementById("fords").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+        
+        var swap = document.getElementById("addMcDonaldsButton");
+        
+        if (swap.innerHTML == "Add McDonalds")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add McDonalds"; }
+    
+    }
+
+//add taco bell function
+function addTacoBell() {
+        restaurants.push(" Taco Bell");
+        
+        //swap button text & color
+        document.getElementById("addTacoBellButton").style.background='ForestGreen';
+
+        document.getElementById("TacoBell").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+        
+        var swap = document.getElementById("addTacoBellButton");
+        
+        if (swap.innerHTML == "Add Taco Bell")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add TacoBell"; }
+    
+    }
+
+//add wendys function
+function addWendys() {
+        restaurants.push(" Wendy's");
+        
+        //swap button text & color
+        document.getElementById("addWendysButton").style.background='ForestGreen';
+
+        document.getElementById("Wendys").style.boxShadow = "0px 0px 0px 3px ForestGreen inset";
+        
+        var swap = document.getElementById("addWendysButton");
+        
+        if (swap.innerHTML == "Add Wendy's")
+        { swap.innerHTML = "Added!"; }
+        
+        else { swap.innerHTML = "Add Wendys"; }
+    
+    }
+    
+//output array function
+    function restaurantsOutput() {
+        //var restaurants = [];
+        restaurants.toString();
+        document.getElementById("restaurantsString").innerHTML = restaurants;
+    }
+    
+</script>
+</body>
+</html>
